@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f97316">
-<title>AI untuk HR KKM</title>
+<title>Kerja HR Lebih Lancar dengan AI | PKD Tumpat</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
@@ -18,18 +18,21 @@
   --shadow-lg:0 12px 30px rgba(0,0,0,.10);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{
   font-family:'Poppins',system-ui,sans-serif;color:var(--ink);
-  background:#fff;line-height:1.6;
-  max-width:480px;margin:0 auto;
-  -webkit-font-smoothing:antialiased;
+  background:#fff;line-height:1.6;max-width:480px;margin:0 auto;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
 }
+button{max-width:100%}
 h1,h2,h3,h4{font-family:'Fredoka',sans-serif;line-height:1.2;font-weight:600}
 h1{font-size:34px}
 h2{font-size:26px;margin-bottom:6px}
 h3{font-size:20px}
-p{font-size:16px}
+h4{font-size:17px}
+p,li{font-size:16px}
+ul,ol{padding-left:22px}
+li+li{margin-top:6px}
 .muted{color:var(--muted)}
 .wrap{padding:20px 20px 40px}
 
@@ -50,35 +53,59 @@ p{font-size:16px}
   background:#fff;border:1px solid var(--line);color:#7c2d12;font-size:13px;
   font-weight:500;padding:6px 12px;border-radius:var(--r-pill);
 }
-.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);
-  margin-right:6px;vertical-align:middle}
+.dot{
+  display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);
+  margin-right:6px;vertical-align:middle;
+}
+
+/* NAV */
+.anchor-nav{
+  display:flex;flex-wrap:wrap;gap:8px;padding:14px 20px;
+  border-bottom:1px solid var(--line);background:#fff;
+}
+.anchor-nav a{
+  color:#9a3412;background:var(--orange-soft);border:1px solid #fed7aa;
+  border-radius:var(--r-pill);padding:6px 10px;text-decoration:none;
+  font-size:12px;font-weight:600;overflow-wrap:anywhere;
+}
 
 /* SECTION */
-.sec{margin-top:30px}
-.sec .kicker{color:var(--orange);font-weight:600;font-size:13px;letter-spacing:.5px;text-transform:uppercase}
+.sec{margin-top:34px;scroll-margin-top:12px}
+.sec .kicker{
+  color:var(--orange);font-weight:600;font-size:13px;
+  letter-spacing:.5px;text-transform:uppercase;
+}
 .sec h2{margin-top:2px}
 .lead{margin-top:8px}
+.stack{display:grid;gap:12px;margin-top:16px}
+.label{
+  display:inline-block;color:#7c2d12;background:var(--orange-soft);
+  border-radius:var(--r-pill);font-size:12px;font-weight:600;
+  padding:3px 9px;margin-bottom:8px;
+}
 
 /* SIMPLE EXPLAINER */
 .big-line{
   background:var(--orange-soft);border:1.5px solid #fed7aa;border-radius:var(--r);
-  padding:18px 18px;margin-top:14px;font-size:18px;font-weight:500;color:#7c2d12;
+  padding:18px;margin-top:14px;font-size:18px;font-weight:500;color:#7c2d12;
 }
 .big-line b{color:var(--orange-dark)}
 
-/* CARD GRID (2col) */
+/* CARDS */
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
 .card{
-  background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  min-width:0;background:#fff;border:1px solid var(--line);border-radius:var(--r);
   padding:16px;box-shadow:var(--shadow);
 }
 .card .ic{font-size:26px}
 .card h3{font-size:17px;margin:8px 0 4px}
 .card p{font-size:14px;color:var(--muted)}
+.card strong{color:var(--ink)}
+.full{grid-column:1/-1}
 
 /* TOOL CARDS */
 .tool{
-  border:1.5px solid var(--line);border-radius:var(--r);padding:18px;margin-top:14px;
+  border:1.5px solid var(--line);border-radius:var(--r);padding:18px;margin-top:20px;
   position:relative;background:#fff;
 }
 .tool .badge{
@@ -87,13 +114,13 @@ p{font-size:16px}
 }
 .tool.gem2 .badge{background:var(--green)}
 .tool h3{margin-bottom:4px;padding-top:4px}
-.tool .price{color:var(--green);font-weight:600;font-size:14px}
 .tool p{margin-top:6px;color:var(--muted);font-size:15px}
 
-/* PROMPT CARDS */
+/* PROMPTS */
 .prompt{
   border:1.5px solid var(--line);border-radius:var(--r);padding:16px;margin-top:12px;
   background:#fff;transition:box-shadow .2s,border-color .2s;
+  overflow-wrap:anywhere;word-break:break-word;
 }
 .prompt:active{box-shadow:var(--shadow-lg);border-color:var(--orange)}
 .prompt .num{
@@ -102,15 +129,17 @@ p{font-size:16px}
   border-radius:8px;margin-right:8px;
 }
 .prompt .what{font-weight:600;font-size:16px;display:inline}
-.prompt .txt{
+.txt{
   margin-top:12px;background:#fafafa;border:1px dashed #d1d5db;border-radius:10px;
   padding:12px;font-size:14px;color:#374151;white-space:pre-wrap;
   font-family:'Roboto Mono',ui-monospace,monospace;line-height:1.5;
+  overflow-wrap:anywhere;word-break:break-word;
 }
-.prompt .row{display:flex;gap:8px;margin-top:12px}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .btn{
-  flex:1;border:none;border-radius:10px;padding:12px;font-size:15px;font-weight:600;
-  font-family:'Poppins';cursor:pointer;min-height:44px;transition:transform .1s,background .2s;
+  flex:1 1 130px;border:none;border-radius:10px;padding:12px;font-size:15px;
+  font-weight:600;font-family:'Poppins';cursor:pointer;min-height:44px;
+  transition:transform .1s,background .2s;
 }
 .btn:active{transform:scale(.97)}
 .btn.primary{background:var(--orange);color:#fff}
@@ -118,15 +147,86 @@ p{font-size:16px}
 .btn.ghost{background:#fff;color:var(--orange);border:1.5px solid var(--orange)}
 .btn.ghost:hover{background:var(--orange-soft)}
 
-/* TRY YOURSELF */
+/* WORKFLOW */
+.flow{display:grid;gap:10px;margin-top:16px}
+.flow .card{display:grid;grid-template-columns:38px 1fr;gap:10px;align-items:start}
+.step{
+  width:34px;height:34px;border-radius:10px;background:var(--orange);
+  color:#fff;display:grid;place-items:center;font-family:'Fredoka';font-weight:600;
+}
+.flow h3{font-size:17px;margin-bottom:3px}
+.flow p{font-size:14px;color:var(--muted)}
+
+/* COMPARE */
+.compare{display:grid;gap:12px;margin-top:16px}
+.compare .bad{border-color:#fecaca;background:#fffafa}
+.compare .good{border-color:#bbf7d0;background:#fafffb}
+.sim{
+  margin-top:14px;border-left:4px solid var(--blue);background:#eff6ff;
+  padding:14px;border-radius:0 10px 10px 0;
+}
+.sim strong{display:block;color:#1e40af;font-size:13px;margin-bottom:5px}
+
+/* EXERCISES */
+.ex{
+  border:1.5px solid var(--line);border-radius:var(--r);margin-top:14px;
+  background:#fff;box-shadow:var(--shadow);overflow:hidden;
+}
+.ex summary{
+  list-style:none;cursor:pointer;padding:17px;font-family:'Fredoka';
+  font-size:18px;font-weight:600;color:#7c2d12;background:var(--orange-soft);
+}
+.ex summary::-webkit-details-marker{display:none}
+.ex summary::after{content:'＋';float:right}
+.ex[open] summary::after{content:'−'}
+.ex-body{padding:16px;overflow-wrap:anywhere}
+.ex-part+.ex-part{margin-top:16px}
+.ex-part h4{margin-bottom:6px;color:#7c2d12}
+.ex-part p,.ex-part li{font-size:14px}
+.ex .txt{overflow-wrap:anywhere;word-break:break-word}
+
+/* SAFETY */
+.safety{
+  background:#fff7ed;border:2px solid var(--orange);border-radius:var(--r);
+  padding:20px;box-shadow:var(--shadow-lg);
+}
+.safety h2{color:#9a3412}
+.stop{
+  margin-top:14px;background:#fff;border:1px solid #fdba74;
+  border-radius:12px;padding:15px;
+}
+.stop h3{color:#b91c1c;font-size:18px;margin-bottom:7px}
+.note{
+  margin-top:12px;background:#fff;border-radius:12px;padding:14px;
+  font-size:14px;
+}
+
+/* QUIZ */
+.quiz-q{
+  border:1px solid var(--line);border-radius:var(--r);padding:16px;
+  margin-top:14px;background:#fff;
+}
+.quiz-q h3{font-size:17px;margin-bottom:10px}
+.options{display:grid;gap:8px}
+.opt{
+  width:100%;text-align:left;border:1.5px solid var(--line);background:#fff;
+  color:var(--ink);padding:11px 12px;border-radius:10px;font-family:'Poppins';
+  font-size:14px;cursor:pointer;
+}
+.opt:hover{border-color:var(--orange)}
+.opt.correct{background:#f0fdf4;border-color:var(--green);color:#166534}
+.opt.incorrect{background:#fef2f2;border-color:#ef4444;color:#991b1b}
+.feedback{min-height:24px;margin-top:8px;font-size:13px;font-weight:600}
+.feedback.ok{color:#15803d}
+.feedback.no{color:#b91c1c}
+
+/* TRY + CTA */
 .try{
   background:linear-gradient(160deg,#eff6ff,#dbeafe);border-radius:var(--r);
   padding:20px;margin-top:16px;
 }
 .try h3{color:#1e3a8a}
 .try p{color:#1e40af;font-size:15px;margin-top:6px}
-
-/* CTA */
 .cta{
   background:linear-gradient(160deg,#fff7ed,#ffd8a8);border-radius:var(--r);
   padding:24px 20px;margin-top:34px;text-align:center;
@@ -139,142 +239,483 @@ p{font-size:16px}
 @media (min-width:480px){
   body{box-shadow:0 0 60px rgba(0,0,0,.05)}
 }
+@media (min-width:820px){
+  body{max-width:900px}
+  h1{font-size:48px}
+  h2{font-size:32px}
+  h3{font-size:22px}
+  p,li{font-size:17px}
+  .hero{padding:48px 44px 40px}
+  .hero .sub{font-size:19px}
+  .anchor-nav{padding:16px 44px}
+  .wrap{padding:24px 44px 56px}
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .flow{grid-template-columns:repeat(5,1fr)}
+  .flow .card{display:block}
+  .step{margin-bottom:10px}
+  .compare{grid-template-columns:1fr 1fr}
+}
 </style>
 </head>
 <body>
 
-<section class="hero">
+<header class="hero">
   <span class="tag">Sesi Sharing · HR KKM</span>
-  <h1>AI untuk Kerja<br>Harian HR</h1>
-  <p class="sub">Jom kenal & cuba AI — tanpa teori, terus amali. 📱</p>
+  <h1>Kerja HR Lebih Lancar dengan AI</h1>
+  <p class="sub">AI &amp; Generatif AI untuk Produktiviti Staf PKD Tumpat</p>
   <div class="who">
     <span><i class="dot"></i>Dr Muhammad Ruhaifi</span>
     <span><i class="dot"></i>Dr Hanan</span>
     <span><i class="dot"></i>Dr Zaim</span>
   </div>
-</section>
+</header>
 
-<div class="wrap">
+<nav class="anchor-nav" aria-label="Navigasi kandungan">
+  <a href="#hook">Hari biasa</a>
+  <a href="#apa">Apa itu AI</a>
+  <a href="#had">Had AI</a>
+  <a href="#aliran">Aliran kerja</a>
+  <a href="#formula">Formula prompt</a>
+  <a href="#contoh">Contoh</a>
+  <a href="#kegunaan">Kegunaan HR</a>
+  <a href="#amali">Amali</a>
+  <a href="#selamat">Keselamatan</a>
+  <a href="#kuiz">Kuiz</a>
+  <a href="#template">Template</a>
+  <a href="#esok">Amalan esok</a>
+</nav>
 
-  <div class="sec">
-    <div class="kicker">Mula-mula</div>
-    <h2>Apa AI tu?</h2>
+<main class="wrap">
+
+  <section class="sec" id="hook">
+    <div class="kicker">Mari mula</div>
+    <h2>Hari biasa di HR</h2>
     <div class="big-line">
-      AI macam <b>rakan sekerja yang pandai</b> — anda tanya dalam bahasa biasa, dia jawab & tolong siapkan kerja.
+      Pagi baru bermula, tetapi permintaan sudah banyak. Draf yang hampir sama perlu dibuat lagi, sementara tarikh akhir pula bertindih.
     </div>
-  </div>
+    <p class="lead muted">AI boleh membantu kerja awal seperti menyusun idea dan menyediakan draf. Anda tetap menyemak, membetulkan dan membuat keputusan.</p>
+  </section>
 
-  <div class="sec">
-    <div class="kicker">Apa yang dia boleh bantu</div>
-    <h2>Kerja HR biasa</h2>
-    <p class="lead muted">Anda tak perlu pandai teknikal. Cukup tahu nak tanya apa.</p>
+  <section class="sec" id="apa">
+    <div class="kicker">Kenal asasnya</div>
+    <h2>Apa itu AI?</h2>
+    <div class="big-line">
+      Mudahnya, <b>carian mencari</b>, <b>AI mengenal corak</b>, dan <b>AI Generatif menghasilkan kandungan baharu</b>.
+    </div>
+
     <div class="grid">
-      <div class="card"><div class="ic">📋</div><h3>Draf surat</h3><p>Surat, e-mel, notis — siap dalam saat.</p></div>
-      <div class="card"><div class="ic">📄</div><h3>Ringkaskan</h3><p>Dokumen panjang jadi 3 poin utama.</p></div>
-      <div class="card"><div class="ic">📅</div><h3>Jadual</h3><p>Susun cuti & mesyuarat tanpa clash.</p></div>
-      <div class="card"><div class="ic">💬</div><h3>Jelaskan</h3><p>Polisi teknikal jadi ayat mudah.</p></div>
+      <article class="card">
+        <div class="ic">🔎</div>
+        <h3>Carian (search)</h3>
+        <p>Menjumpai pautan atau laman yang sudah wujud. Anda buka dan baca sendiri.</p>
+      </article>
+      <article class="card">
+        <div class="ic">🧩</div>
+        <h3>AI</h3>
+        <p>Sistem yang mengenal corak untuk membantu satu tugas, seperti mencadangkan perkataan seterusnya.</p>
+      </article>
+      <article class="card">
+        <div class="ic">✨</div>
+        <h3>AI Generatif</h3>
+        <p>Menghasilkan kandungan <strong>baharu</strong> seperti teks, imej atau audio mengikut arahan. Contoh: Gemini dan NotebookLM.</p>
+      </article>
     </div>
-  </div>
-
-  <div class="sec">
-    <div class="kicker">Khabar baik</div>
-    <h2>Kami dah ada</h2>
-    <p class="lead muted"> Kerajaan dah langgan. Anda cuma guna — <b>percuma</b>.</p>
 
     <div class="tool">
       <span class="badge">Untuk tanya-jawab</span>
-      <h3>Gemini Pro</h3>
-      <div class="price">Percuma · akaun kerajaan</div>
-      <p>Rakan AI untuk draf, ringkasan, terjemah & idea. Tanya dalam Bahasa Melayu terus.</p>
+      <h3>Gemini</h3>
+      <p>Rakan AI untuk draf, ringkasan, terjemah &amp; idea; tanya dalam Bahasa Melayu.</p>
     </div>
 
     <div class="tool gem2">
-      <span class="badge">Untuk dokumen</span>
-      <h3>Gemini Notebook</h3>
-      <div class="price">Percuma · akaun kerajaan</div>
-      <p>Muat naik dokumen (SOP, polisi, laporan) — AI baca & jawab ikut dokumen anda tu.</p>
+      <span class="badge">Untuk dokumen sumber</span>
+      <h3>NotebookLM</h3>
+      <p>Baca &amp; jawab <strong>BERDASARKAN</strong> dokumen sumber yang anda berikan, dengan sitasi.</p>
     </div>
-  </div>
+  </section>
 
-  <div class="sec">
+  <section class="sec" id="had">
+    <div class="kicker">Guna dengan bijak</div>
+    <h2>Had &amp; Tanggungjawab</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="ic">🎭</div>
+        <h3>Halusinasi</h3>
+        <p>AI boleh memberi jawapan yang nampak betul tetapi sebenarnya salah atau direka.</p>
+      </article>
+      <article class="card">
+        <div class="ic">🔍</div>
+        <h3>Semak fakta</h3>
+        <p>Bandingkan fakta, nombor dan rujukan dengan sumber rasmi yang terkini.</p>
+      </article>
+      <article class="card">
+        <div class="ic">👤</div>
+        <h3>Manusia bertanggungjawab</h3>
+        <p>AI ialah alat bantu, bukan pengganti pertimbangan atau keputusan manusia.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="aliran">
+    <div class="kicker">Cara kerja selamat</div>
+    <h2>Aliran kerja 5 langkah</h2>
+    <div class="flow">
+      <article class="card"><span class="step">1</span><div><h3>Tugasan</h3><p>Tentukan hasil yang benar-benar diperlukan.</p></div></article>
+      <article class="card"><span class="step">2</span><div><h3>Anonim</h3><p>Buang maklumat peribadi, sulit dan petunjuk identiti.</p></div></article>
+      <article class="card"><span class="step">3</span><div><h3>Prompt</h3><p>Beri arahan, konteks dan bentuk output yang jelas.</p></div></article>
+      <article class="card"><span class="step">4</span><div><h3>Semak</h3><p>Periksa fakta, nada, kiraan, sitasi dan sumber rasmi.</p></div></article>
+      <article class="card"><span class="step">5</span><div><h3>Siap</h3><p>Edit, sahkan dan gunakan melalui proses kerja biasa.</p></div></article>
+    </div>
+  </section>
+
+  <section class="sec" id="formula">
+    <div class="kicker">Arahan yang jelas</div>
+    <h2>Formula prompt 5 bahagian</h2>
+    <p class="lead muted">Prompt ialah arahan kepada AI. Lima bahagian ini membantu AI memahami kehendak anda.</p>
+
+    <div class="prompt"><span class="num">1</span><span class="what">Peranan</span><p class="lead muted">Nyatakan sudut kerja AI, contohnya “Bertindak sebagai pembantu pentadbiran”.</p></div>
+    <div class="prompt"><span class="num">2</span><span class="what">Konteks</span><p class="lead muted">Terangkan latar yang perlu diketahui tanpa memasukkan maklumat sensitif.</p></div>
+    <div class="prompt"><span class="num">3</span><span class="what">Tugasan</span><p class="lead muted">Nyatakan tindakan khusus: draf, ringkas, susun atau jelaskan.</p></div>
+    <div class="prompt"><span class="num">4</span><span class="what">Output</span><p class="lead muted">Minta format seperti e-mel, jadual, senarai atau tiga poin.</p></div>
+    <div class="prompt"><span class="num">5</span><span class="what">Kekangan</span><p class="lead muted">Tetapkan nada, panjang, bahasa dan perkara yang tidak boleh diandaikan.</p></div>
+  </section>
+
+  <section class="sec" id="contoh">
+    <div class="kicker">Bandingkan</div>
+    <h2>Prompt lemah lawan prompt diperbaiki</h2>
+
+    <div class="compare">
+      <article class="prompt bad">
+        <span class="label">PROMPT LEMAH</span>
+        <div class="txt">Tulis e-mel mesyuarat.</div>
+        <p class="lead muted">Terlalu umum. AI perlu meneka tujuan, penerima, nada dan format.</p>
+      </article>
+
+      <article class="prompt good">
+        <span class="label">PROMPT DIPERBAIKI</span>
+        <div class="txt">Bertindak sebagai pembantu pentadbiran. Draf e-mel jemputan mesyuarat dalaman di Dewan Anggerik pada [tarikh] dan [masa]. Gunakan Bahasa Melayu profesional serta mesra. Sertakan tujuan, tempat dan permintaan pengesahan kehadiran. Maksimum 120 patah perkataan. Jangan mereka maklumat yang tiada.</div>
+        <p class="lead muted">Peranan, konteks, tugasan, output dan kekangan lebih jelas.</p>
+      </article>
+    </div>
+
+    <div class="sim">
+      <strong>CONTOH SIMULASI — bukan output sebenar Gemini</strong>
+      <p>Subjek: Jemputan Mesyuarat Dalaman<br><br>Tuan/Puan, anda dijemput menghadiri mesyuarat dalaman di Dewan Anggerik pada [tarikh], [masa]. Mohon sahkan kehadiran. Terima kasih.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="kegunaan">
+    <div class="kicker">Idea kerja</div>
+    <h2>Kegunaan HR praktikal</h2>
+    <div class="grid">
+      <article class="card"><div class="ic">✉️</div><h3>Draf surat/e-mel</h3><p>Sediakan draf awal dengan tujuan, penerima dan nada yang jelas.</p></article>
+      <article class="card"><div class="ic">📝</div><h3>Minit fiksyen</h3><p>Tukar nota latihan fiksyen kepada minit dan action tracker untuk dipelajari.</p></article>
+      <article class="card"><div class="ic">✅</div><h3>SOP/checklist</h3><p>Bina senarai semak berdasarkan sumber yang diluluskan, kemudian sahkan setiap perkara.</p></article>
+      <article class="card"><div class="ic">📅</div><h3>Menyusun jadual</h3><p>AI mencadang susunan tanpa mengandaikan peraturan perkhidmatan; manusia menyemak dan mengesahkan.</p></article>
+      <article class="card"><div class="ic">📊</div><h3>Formula Excel</h3><p>Minta penerangan formula menggunakan contoh kecil dan fiksyen.</p></article>
+      <article class="card"><div class="ic">💡</div><h3>Brainstorm FAQ</h3><p>Cadang soalan lazim tanpa membuat keputusan kelayakan atau hak seseorang.</p></article>
+    </div>
+  </section>
+
+  <section class="sec" id="amali">
     <div class="kicker">Hands-on</div>
-    <h2>Cuba sekarang</h2>
-    <p class="lead muted">Tekan <b>Salin</b>, lepas tu <b>Buka Gemini</b> & paste. Jom amali!</p>
+    <h2>Amali berpandu</h2>
+    <p class="lead muted">Buka satu latihan, baca input fiksyen, salin prompt dan semak simulasi. Jangan gunakan data staf sebenar.</p>
 
-    <div class="prompt">
-      <span class="num">1</span><span class="what">Draf e-mel mesyuarat</span>
-      <div class="txt">Tolong draf e-mel jemputan mesyuarat HR untuk hari Jumaat, jam 3 petang di Dewan KKM. Nada profesional tapi mesra.</div>
-      <div class="row">
-        <button class="btn primary" data-copy>Salin</button>
-        <button class="btn ghost" data-gem="https://gemini.google.com">Buka Gemini</button>
+    <details class="ex" id="ex1">
+      <summary>EX1 · Draf e-mel jemputan</summary>
+      <div class="ex-body">
+        <div class="ex-part"><h4>Objektif</h4><p>Menghasilkan draf e-mel profesional yang mudah disemak.</p></div>
+        <div class="ex-part"><h4>Input contoh FIKSYEN</h4><p>Mesyuarat latihan dalaman di Dewan Anggerik pada [tarikh], [masa]. Semua butiran ialah rekaan dan placeholder; tiada nama atau tarikh sebenar.</p></div>
+        <div class="ex-part">
+          <h4>Prompt sedia-salin</h4>
+          <div class="txt">Bertindak sebagai pembantu pentadbiran. Draf e-mel jemputan untuk mesyuarat latihan dalaman di Dewan Anggerik pada [tarikh], [masa]. Gunakan Bahasa Melayu profesional dan mesra. Sertakan subjek, tujuan ringkas, tempat serta permintaan pengesahan kehadiran. Maksimum 120 patah perkataan. Jangan mereka butiran yang tidak diberi.</div>
+          <div class="row">
+            <button class="btn primary" type="button" data-copy>Salin</button>
+            <button class="btn ghost" type="button" data-gem="https://gemini.google.com">Buka Gemini</button>
+          </div>
+        </div>
+        <div class="ex-part sim"><strong>SIMULASI — bukan hasil sebenar AI</strong><p>Draf mengandungi subjek, sapaan, tujuan, [tarikh], [masa], Dewan Anggerik dan permintaan pengesahan.</p></div>
+        <div class="ex-part"><h4>Checklist semakan</h4><ul><li>Adakah semua placeholder telah diganti?</li><li>Adakah tujuan, lokasi dan nada tepat?</li><li>Adakah penerima dan proses kelulusan betul?</li></ul></div>
+        <div class="ex-part"><h4>Iterasi</h4><p>Minta: “Pendekkan kepada 80 patah perkataan dan jadikan nada lebih mesra tanpa mengubah fakta.”</p></div>
       </div>
-    </div>
+    </details>
 
-    <div class="prompt">
-      <span class="num">2</span><span class="what">Ringkaskan surat</span>
-      <div class="txt">Ringkaskan surat di bawah kepada 3 poin utama:\n\n[paste teks surat di sini]</div>
-      <div class="row">
-        <button class="btn primary" data-copy>Salin</button>
-        <button class="btn ghost" data-gem="https://gemini.google.com">Buka Gemini</button>
-      </div>
-    </div>
+    <details class="ex" id="ex2">
+      <summary>EX2 · Minit + action tracker</summary>
+      <div class="ex-body">
+        <div class="ex-part"><h4>Objektif</h4><p>Menukar nota fiksyen kepada minit ringkas dan jadual tindakan.</p></div>
+        <div class="ex-part"><h4>Input contoh FIKSYEN</h4><p>Nota latihan rekaan: Staf A akan menyediakan draf poster. Staf B akan menyemak senarai bahan. Tarikh sasaran kedua-duanya ialah [tarikh sasaran]. Tiada pekerja atau tarikh sebenar.</p></div>
+        <div class="ex-part">
+          <h4>Prompt sedia-salin</h4>
+          <div class="txt">Bertindak sebagai pencatat mesyuarat. Berdasarkan nota FIKSYEN berikut, hasilkan:
+1. Minit ringkas dengan tajuk “Mesyuarat Latihan Fiksyen”.
+2. Jadual tindakan dengan lajur Tugasan | Pemilik | Tarikh Sasaran.
+3. Senarai perkara yang masih perlu disahkan.
 
-    <div class="prompt">
-      <span class="num">3</span><span class="what">Jadual cuti</span>
-      <div class="txt">Susun jadual cuti untuk 5 staf pada minggu hadapan supaya tak ada yang bercuti serentak. Bagi dalam bentuk senarai.</div>
-      <div class="row">
-        <button class="btn primary" data-copy>Salin</button>
-        <button class="btn ghost" data-gem="https://gemini.google.com">Buka Gemini</button>
-      </div>
-    </div>
+Nota:
+- Staf A menyediakan draf poster.
+- Staf B menyemak senarai bahan.
+- Tarikh sasaran: [tarikh sasaran].
 
-    <div class="prompt">
-      <span class="num">4</span><span class="what">Jelaskan polisi</span>
-      <div class="txt">Jelaskan polisi cuti sakit KKM dalam ayat yang mudah difahami oleh staff baharu. Maksimal 5 ayat.</div>
-      <div class="row">
-        <button class="btn primary" data-copy>Salin</button>
-        <button class="btn ghost" data-gem="https://gemini.google.com">Buka Gemini</button>
+Jangan tambah keputusan, nama, tarikh atau fakta yang tidak terdapat dalam nota.</div>
+          <div class="row">
+            <button class="btn primary" type="button" data-copy>Salin</button>
+            <button class="btn ghost" type="button" data-gem="https://gemini.google.com">Buka Gemini</button>
+          </div>
+        </div>
+        <div class="ex-part sim"><strong>SIMULASI — bukan hasil sebenar AI</strong><p>Minit ringkas diikuti jadual: “Draf poster | Staf A | [tarikh sasaran]” dan “Semak senarai bahan | Staf B | [tarikh sasaran]”.</p></div>
+        <div class="ex-part"><h4>Checklist semakan</h4><ul><li>Adakah tugasan dan pemilik sepadan dengan nota?</li><li>Adakah AI menambah keputusan yang tidak wujud?</li><li>Adakah tarikh masih berupa placeholder?</li></ul></div>
+        <div class="ex-part"><h4>Iterasi</h4><p>Minta: “Asingkan perkara yang disahkan dan perkara yang masih perlu pengesahan.”</p></div>
       </div>
-    </div>
+    </details>
+
+    <details class="ex" id="ex3">
+      <summary>EX3 · Fahami formula Excel</summary>
+      <div class="ex-body">
+        <div class="ex-part"><h4>Objektif</h4><p>Memahami fungsi formula asas menggunakan nombor kecil dan fiksyen.</p></div>
+        <div class="ex-part"><h4>Input contoh FIKSYEN</h4><p>Nilai latihan: 2, 3 dan 5. Status latihan: Hadir, Tidak Hadir, Hadir. Semua nombor dan status ini direka; tiada data sebenar.</p></div>
+        <div class="ex-part">
+          <h4>Prompt sedia-salin</h4>
+          <div class="txt">Terangkan dalam Bahasa Melayu mudah cara formula Excel berikut berfungsi menggunakan data FIKSYEN sahaja:
+- Sel B2:B4 mengandungi 2, 3, 5. Terangkan =SUM(B2:B4).
+- Sel C2:C4 mengandungi “Hadir”, “Tidak Hadir”, “Hadir”. Terangkan =COUNTIF(C2:C4,"Hadir").
+
+Beri jawapan langkah demi langkah, nyatakan hasil bagi setiap formula, dan ingatkan bahawa contoh ini bukan data sebenar. Jangan andaikan versi Excel atau tetapan lain.</div>
+          <div class="row">
+            <button class="btn primary" type="button" data-copy>Salin</button>
+            <button class="btn ghost" type="button" data-gem="https://gemini.google.com">Buka Gemini</button>
+          </div>
+        </div>
+        <div class="ex-part sim"><strong>SIMULASI — bukan hasil sebenar AI</strong><p><code>=SUM(B2:B4)</code> menjumlahkan 2 + 3 + 5, lalu menghasilkan 10. <code>=COUNTIF(C2:C4,"Hadir")</code> mengira dua sel yang mengandungi “Hadir”.</p></div>
+        <div class="ex-part"><h4>Checklist semakan</h4><ul><li>Adakah julat sel dan ejaan kriteria tepat?</li><li>Adakah hasil kiraan betul?</li><li>Adakah penerangan mudah difahami?</li></ul></div>
+        <div class="ex-part"><h4>Iterasi</h4><p>Minta: “Terangkan semula menggunakan analogi bakul dan label, dalam tiga ayat sahaja.”</p></div>
+      </div>
+    </details>
+
+    <details class="ex" id="ex4">
+      <summary>EX4 · FAQ berasaskan sumber dengan NotebookLM</summary>
+      <div class="ex-body">
+        <div class="ex-part"><h4>Objektif</h4><p>Membina draf FAQ berdasarkan dokumen sumber yang dibenarkan, bersama sitasi.</p></div>
+        <div class="ex-part"><h4>Input contoh FIKSYEN</h4><p>Sebuah dokumen latihan rekaan bertajuk “[Panduan Awam Latihan]”, yang telah disahkan sebagai awam, tidak sulit dan diluluskan untuk latihan. Jangan gunakan dokumen sebenar dalam latihan ini.</p></div>
+        <div class="ex-part">
+          <h4>Prompt sedia-salin</h4>
+          <div class="txt">Berdasarkan HANYA dokumen sumber yang saya berikan dan yang telah disahkan sebagai awam, tidak sulit serta diluluskan, bina 5 FAQ ringkas dalam Bahasa Melayu.
+
+Untuk setiap jawapan:
+- Sertakan sitasi kepada bahagian berkaitan dalam dokumen.
+- Jika jawapan tiada dalam sumber, tulis “Tidak dinyatakan dalam sumber”.
+- Jangan tentukan kelayakan atau hak seseorang.
+- Jangan buat andaian atau gunakan pengetahuan di luar sumber.
+- Ingatkan saya supaya menyemak SETIAP SITASI terhadap dokumen asal sebelum menggunakan jawapan.
+
+JANGAN muat naik atau minta saya memuat naik bahan sulit, data peribadi, rekod staf atau dokumen yang belum diluluskan.</div>
+          <div class="row">
+            <button class="btn primary" type="button" data-copy>Salin</button>
+            <button class="btn ghost" type="button" data-nlm="https://notebooklm.google.com">Buka NotebookLM</button>
+          </div>
+        </div>
+        <div class="ex-part sim"><strong>SIMULASI — bukan hasil sebenar AI</strong><p>FAQ dipaparkan bersama rujukan kepada bahagian sumber. Perkara yang tiada dalam dokumen ditanda “Tidak dinyatakan dalam sumber”.</p></div>
+        <div class="ex-part"><h4>Checklist semakan</h4><ul><li>Adakah sumber benar-benar dibenarkan dan tidak sulit?</li><li>Adakah setiap sitasi sepadan dengan dokumen asal?</li><li>Adakah FAQ mengelakkan keputusan kelayakan atau hak?</li></ul></div>
+        <div class="ex-part"><h4>Iterasi</h4><p>Minta: “Senaraikan FAQ yang sitasinya masih lemah atau memerlukan pengesahan manusia.”</p></div>
+      </div>
+    </details>
 
     <div class="try">
       <h3>Giliran anda 🙋</h3>
-      <p>Ada kerja HR yang buat anda penat nak tulis? Cuba tanya AI. Kami tolong kalau tersangkut — terus cuba bersama!</p>
+      <p>Pilih satu latihan sahaja dahulu. Gunakan contoh fiksyen, semak hasil, kemudian perbaiki prompt.</p>
     </div>
-  </div>
+  </section>
 
-  <div class="cta">
-    <h2>Mulakan hari ni</h2>
-    <p>1 prompt = 1 minit. cuba satu, anda akan nampak beza.</p>
-    <button class="btn primary" data-gem="https://gemini.google.com">Buka Gemini Sekarang</button>
-  </div>
+  <section class="sec safety" id="selamat">
+    <div class="kicker">Berhenti dan semak</div>
+    <h2>Keselamatan &amp; Privasi</h2>
+    <div class="stop">
+      <h3>JANGAN muat naik ke AI awam</h3>
+      <ul>
+        <li>Kad pengenalan atau nombor IC</li>
+        <li>Slip gaji atau data payroll</li>
+        <li>Rekod perubatan</li>
+        <li>Fail tatatertib, prestasi atau personel</li>
+        <li>Minit mesyuarat sulit</li>
+      </ul>
+    </div>
+    <div class="note"><strong>Anonim mungkin TIDAK mencukupi.</strong> Gabungan nama, jawatan, lokasi atau konteks boleh menyebabkan seseorang dikenal pasti.</div>
+    <div class="note">Ikut kelulusan institusi atau organisasi dan dasar agensi. Pastikan semakan manusia dibuat dan fakta dirujuk kepada sumber rasmi.</div>
+  </section>
 
-  <p class="foot">Sesi AI & Generatif AI · HR KKM<br>Dr Muhammad Ruhaifi · Dr Hanan · Dr Zaim</p>
+  <section class="sec" id="kuiz">
+    <div class="kicker">Semak kefahaman</div>
+    <h2>Mini kuiz</h2>
+    <p class="lead muted">Pilih satu jawapan. Jika tersilap, cuba lagi.</p>
 
-</div>
+    <article class="quiz-q">
+      <h3>1. Apakah beza utama carian dan AI Generatif?</h3>
+      <div class="options">
+        <button class="opt" type="button" data-correct="false">Carian sentiasa menulis kandungan baharu</button>
+        <button class="opt" type="button" data-correct="true">Carian mencari laman sedia ada; AI Generatif menghasilkan kandungan baharu</button>
+        <button class="opt" type="button" data-correct="false">Kedua-duanya sentiasa memberi jawapan tepat</button>
+      </div>
+      <p class="feedback" aria-live="polite"></p>
+    </article>
+
+    <article class="quiz-q">
+      <h3>2. Apakah “halusinasi” AI?</h3>
+      <div class="options">
+        <button class="opt" type="button" data-correct="false">AI menjadi perlahan</button>
+        <button class="opt" type="button" data-correct="false">AI meminta prompt yang lebih pendek</button>
+        <button class="opt" type="button" data-correct="true">Jawapan nampak betul tetapi sebenarnya salah atau direka</button>
+      </div>
+      <p class="feedback" aria-live="polite"></p>
+    </article>
+
+    <article class="quiz-q">
+      <h3>3. Bahan manakah tidak patut dimuat naik ke AI awam?</h3>
+      <div class="options">
+        <button class="opt" type="button" data-correct="true">Slip gaji staf</button>
+        <button class="opt" type="button" data-correct="false">Contoh nombor fiksyen 2, 3 dan 5</button>
+        <button class="opt" type="button" data-correct="false">Teks latihan tanpa data sebenar</button>
+      </div>
+      <p class="feedback" aria-live="polite"></p>
+    </article>
+
+    <article class="quiz-q">
+      <h3>4. Siapakah yang bertanggungjawab terhadap keputusan akhir?</h3>
+      <div class="options">
+        <button class="opt" type="button" data-correct="false">AI sepenuhnya</button>
+        <button class="opt" type="button" data-correct="true">Manusia yang menyemak dan mengesahkan</button>
+        <button class="opt" type="button" data-correct="false">Tiada sesiapa jika prompt lengkap</button>
+      </div>
+      <p class="feedback" aria-live="polite"></p>
+    </article>
+
+    <article class="quiz-q">
+      <h3>5. Apakah tindakan betul untuk jawapan NotebookLM yang mempunyai sitasi?</h3>
+      <div class="options">
+        <button class="opt" type="button" data-correct="false">Terus edar tanpa membaca</button>
+        <button class="opt" type="button" data-correct="false">Anggap semua sitasi pasti tepat</button>
+        <button class="opt" type="button" data-correct="true">Semak setiap sitasi terhadap dokumen asal</button>
+      </div>
+      <p class="feedback" aria-live="polite"></p>
+    </article>
+  </section>
+
+  <section class="sec" id="template">
+    <div class="kicker">Simpan untuk guna semula</div>
+    <h2>Template salinan</h2>
+    <div class="prompt tpl">
+      <span class="what">Template prompt 5 bahagian</span>
+      <div class="txt">PERANAN
+Bertindak sebagai [peranan yang sesuai].
+
+KONTEKS
+Saya perlu [latar atau tujuan]. Gunakan hanya maklumat berikut: [maklumat yang selamat dan tidak sulit].
+
+TUGASAN
+Tolong [tindakan khusus yang diperlukan].
+
+OUTPUT
+Berikan dalam bentuk [e-mel/jadual/senarai/checklist] dengan [bilangan/panjang yang dikehendaki].
+
+KEKANGAN
+Gunakan Bahasa Melayu [nada]. Jangan mereka fakta, nama, tarikh, polisi atau rujukan. Tandakan perkara yang perlu disahkan dan ingatkan saya untuk menyemak dengan sumber rasmi.</div>
+      <div class="row">
+        <button class="btn primary" type="button" data-copy>Salin</button>
+        <button class="btn ghost" type="button" data-gem="https://gemini.google.com">Buka Gemini</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="esok">
+    <div class="kicker">Langkah kecil</div>
+    <h2>Amalan esok</h2>
+    <div class="grid">
+      <article class="card"><div class="ic">1️⃣</div><h3>Pilih satu tugas rendah risiko</h3><p>Contohnya, draf e-mel dalaman menggunakan maklumat fiksyen atau tidak sensitif.</p></article>
+      <article class="card"><div class="ic">2️⃣</div><h3>Guna formula 5 bahagian</h3><p>Nyatakan peranan, konteks, tugasan, output dan kekangan.</p></article>
+      <article class="card"><div class="ic">3️⃣</div><h3>Semak sebelum guna</h3><p>Periksa fakta, nada, sumber, privasi dan kelulusan melalui proses kerja biasa.</p></article>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Mulakan dengan satu latihan</h2>
+    <p>Gunakan data fiksyen, beri arahan yang jelas, kemudian semak hasil dengan teliti.</p>
+    <button class="btn primary" type="button" data-gem="https://gemini.google.com">Buka Gemini Sekarang</button>
+  </section>
+
+  <footer class="foot">
+    Sesi AI &amp; Generatif AI · HR PKD Tumpat<br>
+    Dr Muhammad Ruhaifi · Dr Hanan · Dr Zaim
+  </footer>
+
+</main>
 
 <script>
-document.querySelectorAll('[data-copy]').forEach(function(b){
-  b.addEventListener('click',function(){
-    var card=b.closest('.prompt');
-    var t=card.querySelector('.txt').innerText;
-    function done(ok){
-      b.textContent=ok?'✓ Tersalin!':'Salin manual';
-      setTimeout(function(){b.textContent='Salin';},1500);
-    }
-    if(navigator.clipboard&&navigator.clipboard.writeText){
-      navigator.clipboard.writeText(t).then(function(){done(true)},function(){done(false)});
-    }else{
-      var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';
-      document.body.appendChild(ta);ta.select();
-      var ok=false;try{ok=document.execCommand('copy')}catch(e){ok=false}
-      document.body.removeChild(ta);done(ok);
-    }
+(function(){
+  function copyFallback(text, done){
+    var ta=document.createElement('textarea');
+    ta.value=text;
+    ta.setAttribute('readonly','');
+    ta.style.position='fixed';
+    ta.style.left='-9999px';
+    ta.style.opacity='0';
+    document.body.appendChild(ta);
+    ta.select();
+    var ok=false;
+    try{ok=document.execCommand('copy');}catch(e){ok=false;}
+    document.body.removeChild(ta);
+    done(ok);
+  }
+
+  document.querySelectorAll('[data-copy]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var holder=b.closest('.prompt, .ex, .tpl')||b.parentElement;
+      var txt=holder?holder.querySelector('.txt'):null;
+      var original=b.textContent;
+      if(!txt){return;}
+      var text=txt.innerText;
+      function done(ok){
+        b.textContent=ok?'✓ Tersalin!':'Salin manual';
+        window.setTimeout(function(){b.textContent=original;},1500);
+      }
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){
+          done(true);
+        },function(){
+          copyFallback(text,done);
+        });
+      }else{
+        copyFallback(text,done);
+      }
+    });
   });
-});
-document.querySelectorAll('[data-gem]').forEach(function(b){
-  b.addEventListener('click',function(){window.open(b.dataset.gem,'_blank');});
-});
+
+  document.querySelectorAll('[data-gem],[data-nlm]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var url=b.getAttribute('data-gem')||b.getAttribute('data-nlm');
+      if(url){window.open(url,'_blank','noopener,noreferrer');}
+    });
+  });
+
+  document.querySelectorAll('.quiz-q').forEach(function(q){
+    var feedback=q.querySelector('.feedback');
+    q.querySelectorAll('.opt').forEach(function(option){
+      option.addEventListener('click',function(){
+        q.querySelectorAll('.opt').forEach(function(item){
+          item.classList.remove('correct','incorrect');
+        });
+        if(option.getAttribute('data-correct')==='true'){
+          option.classList.add('correct');
+          feedback.textContent='Betul! Teruskan amalan semak dan sahkan.';
+          feedback.className='feedback ok';
+        }else{
+          option.classList.add('incorrect');
+          feedback.textContent='Belum tepat. Cuba pilihan lain.';
+          feedback.className='feedback no';
+        }
+      });
+    });
+  });
+})();
 </script>
 </body>
 </html>
